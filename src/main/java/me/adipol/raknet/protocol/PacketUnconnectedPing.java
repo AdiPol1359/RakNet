@@ -4,16 +4,16 @@ import me.adipol.raknet.util.ProtocolInfo;
 
 public class PacketUnconnectedPing extends OfflinePacket {
 
-    public long time;
+    public long timestamp;
     public long clientGuid;
 
     public PacketUnconnectedPing() {
-        super(ProtocolInfo.PacketUnconnectedPing);
+        super(ProtocolInfo.UnconnectedPing);
     }
 
     @Override
     public void decodePayload() {
-        this.time = this.readLong();
+        this.timestamp = this.readLong();
         this.readMagic();
         this.clientGuid = this.readLong();
     }

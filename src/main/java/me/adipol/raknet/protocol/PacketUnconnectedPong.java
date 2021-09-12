@@ -4,12 +4,12 @@ import me.adipol.raknet.util.ProtocolInfo;
 
 public class PacketUnconnectedPong extends OfflinePacket{
 
-    public long time;
+    public long timestamp;
     public long serverGuid;
     public String serverName;
 
     public PacketUnconnectedPong() {
-        super(ProtocolInfo.PacketUnconnectedPong);
+        super(ProtocolInfo.UnconnectedPong);
     }
 
     @Override
@@ -19,7 +19,7 @@ public class PacketUnconnectedPong extends OfflinePacket{
 
     @Override
     public void encodePayload() {
-        this.writeLong(time);
+        this.writeLong(timestamp);
         this.writeLong(serverGuid);
         this.writeMagic();
         this.writeString(serverName);
