@@ -1,16 +1,17 @@
-package me.adipol.raknet.protocol;
+package me.adipol.raknet.protocol.packet;
 
+import me.adipol.raknet.protocol.OfflinePacket;
 import me.adipol.raknet.util.ProtocolInfo;
 
 import java.net.InetSocketAddress;
 
-public class OpenConnectionRequest2 extends OfflinePacket {
+public class PacketOpenConnectionRequest2 extends OfflinePacket {
 
     public InetSocketAddress serverAddress;
     public short mtuSize;
     public long clientGUID;
 
-    public OpenConnectionRequest2() {
+    public PacketOpenConnectionRequest2() {
         super(ProtocolInfo.OpenConnectionRequest2);
     }
 

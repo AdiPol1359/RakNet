@@ -91,6 +91,17 @@ public class BinaryStream {
         dataOutputStream.writeLong(v);
     }
 
+    @SneakyThrows
+    public boolean readBoolean(boolean v) {
+        DataInputStream dataInputStream = getInputStream(1);
+        return dataInputStream.readByte() == 1;
+    }
+
+    @SneakyThrows
+    public void writeBoolean(boolean v) {
+        dataOutputStream.writeByte(v ? 1 : 0);
+    }
+
     public int addOffset(int length) {
         return (this.offset += length) - length;
     }

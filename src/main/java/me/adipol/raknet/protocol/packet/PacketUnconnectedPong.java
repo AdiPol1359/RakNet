@@ -1,8 +1,9 @@
-package me.adipol.raknet.protocol;
+package me.adipol.raknet.protocol.packet;
 
+import me.adipol.raknet.protocol.OfflinePacket;
 import me.adipol.raknet.util.ProtocolInfo;
 
-public class PacketUnconnectedPong extends OfflinePacket{
+public class PacketUnconnectedPong extends OfflinePacket {
 
     public long timestamp;
     public long serverGuid;

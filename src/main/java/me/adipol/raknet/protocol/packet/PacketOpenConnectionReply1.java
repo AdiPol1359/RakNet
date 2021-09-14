@@ -1,5 +1,6 @@
-package me.adipol.raknet.protocol;
+package me.adipol.raknet.protocol.packet;
 
+import me.adipol.raknet.protocol.OfflinePacket;
 import me.adipol.raknet.util.ProtocolInfo;
 
 public class PacketOpenConnectionReply1 extends OfflinePacket {

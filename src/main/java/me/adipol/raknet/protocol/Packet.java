@@ -38,16 +38,15 @@ public abstract class Packet extends BinaryStream {
         byte version = this.readByte();
 
         if(version == 4) {
-            String address = ((~this.readUnsignedByte()) & 0xff) + "." + ((~this.readUnsignedByte()) & 0xff) + "." + ((~this.readUnsignedByte()) & 0xff) + "." + ((~this.readUnsignedByte()) & 0xff);
+            String address = ((~this.readByte()) & 0xff) + "." + ((~this.readByte()) & 0xff) + "." + ((~this.readByte()) & 0xff) + "." + ((~this.readByte()) & 0xff);
             short port = this.readShort();
 
             return new InetSocketAddress(address, port);
         }
         else {
             //TODO: ADD SUPPORT FOR IPV6
+            return null;
         }
-
-        return null;
     }
 
     public void writeAddress(String address, short port, byte version) {
