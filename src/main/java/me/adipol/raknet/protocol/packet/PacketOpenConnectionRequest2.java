@@ -12,7 +12,7 @@ public class PacketOpenConnectionRequest2 extends OfflinePacket {
     public long clientGUID;
 
     public PacketOpenConnectionRequest2() {
-        super(ProtocolInfo.OpenConnectionRequest2);
+        super(ProtocolInfo.OPEN_CONNECTION_REQUEST_2);
     }
 
     @Override

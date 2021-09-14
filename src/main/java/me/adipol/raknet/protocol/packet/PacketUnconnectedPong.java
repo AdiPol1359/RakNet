@@ -10,7 +10,7 @@ public class PacketUnconnectedPong extends OfflinePacket {
     public String serverName;
 
     public PacketUnconnectedPong() {
-        super(ProtocolInfo.UnconnectedPong);
+        super(ProtocolInfo.UNCONNECTED_PONG);
     }
 
     @Override

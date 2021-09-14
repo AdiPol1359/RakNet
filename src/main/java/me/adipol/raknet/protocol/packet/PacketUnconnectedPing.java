@@ -9,7 +9,7 @@ public class PacketUnconnectedPing extends OfflinePacket {
     public long clientGuid;
 
     public PacketUnconnectedPing() {
-        super(ProtocolInfo.UnconnectedPing);
+        super(ProtocolInfo.UNCONNECTED_PING);
     }
 
     @Override

@@ -9,12 +9,12 @@ public class PacketOpenConnectionRequest1 extends OfflinePacket {
     public short mtuSize;
 
     public PacketOpenConnectionRequest1() {
-        super(ProtocolInfo.OpenConnectionRequest1);
+        super(ProtocolInfo.OPEN_CONNECTION_REQUEST_1);
     }
 
     @Override
     public void decodePayload() {
-        this.writeMagic();
+        this.readMagic();
         this.protocolVersion = this.readByte();
         this.mtuSize = (short) this.getBuffer().length;
     }

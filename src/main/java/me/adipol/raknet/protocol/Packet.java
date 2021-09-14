@@ -54,7 +54,7 @@ public abstract class Packet extends BinaryStream {
 
         if(version == 4) {
             Arrays.stream(address.split("\\.")).forEach(n -> {
-                this.writeUnsignedByte(((byte) (~Integer.parseInt(n)) & 0xff));
+                this.writeByte((byte) ((~Integer.parseInt(n)) & 0xff));
             });
 
             this.writeShort(port);

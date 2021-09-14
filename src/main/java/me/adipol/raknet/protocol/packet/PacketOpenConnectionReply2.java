@@ -1,6 +1,7 @@
 package me.adipol.raknet.protocol.packet;
 
 import me.adipol.raknet.protocol.OfflinePacket;
+import me.adipol.raknet.util.ProtocolInfo;
 
 public class PacketOpenConnectionReply2 extends OfflinePacket {
 
@@ -9,9 +10,10 @@ public class PacketOpenConnectionReply2 extends OfflinePacket {
     public short port;
     public byte version;
     public short mtuSize;
+    public boolean enableEcryption;
 
     public PacketOpenConnectionReply2() {
-        super(0x08);
+        super(ProtocolInfo.OPEN_CONNECTION_REPLY_2);
     }
 
     @Override
@@ -25,6 +27,6 @@ public class PacketOpenConnectionReply2 extends OfflinePacket {
         this.writeLong(serverGuid);
         this.writeAddress(address, port, version);
         this.writeShort(mtuSize);
-        this.writeByte((byte) 0);
+        this.writeBoolean(enableEcryption);
     }
 }

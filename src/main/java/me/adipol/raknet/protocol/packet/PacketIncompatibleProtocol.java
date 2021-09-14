@@ -3,14 +3,13 @@ package me.adipol.raknet.protocol.packet;
 import me.adipol.raknet.protocol.OfflinePacket;
 import me.adipol.raknet.util.ProtocolInfo;
 
-public class PacketOpenConnectionReply1 extends OfflinePacket {
+public class PacketIncompatibleProtocol extends OfflinePacket {
 
+    public byte protocolVersion;
     public long serverGuid;
-    public boolean useSecurity;
-    public short mtuSize;
 
-    public PacketOpenConnectionReply1() {
-        super(ProtocolInfo.OPEN_CONNECTION_REPLY_1);
+    public PacketIncompatibleProtocol() {
+        super(ProtocolInfo.INCOMPATIBLE_PROTOCOL);
     }
 
     @Override
@@ -20,9 +19,8 @@ public class PacketOpenConnectionReply1 extends OfflinePacket {
 
     @Override
     public void encodePayload() {
+        this.writeByte(protocolVersion);
         this.writeMagic();
         this.writeLong(serverGuid);
-        this.writeBoolean(useSecurity);
-        this.writeShort(mtuSize);
     }
 }
