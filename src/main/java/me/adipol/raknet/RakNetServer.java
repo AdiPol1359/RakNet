@@ -9,10 +9,13 @@ import java.io.DataInputStream;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
+import java.util.HashMap;
+import java.util.Map;
 
 public class RakNetServer extends Thread {
 
-   private final byte[] bytes = new byte[256];
+    private final byte[] bytes = new byte[256];
+    private final Map<String, Session> sessions = new HashMap<>();
 
     private DatagramSocket socket;
 
@@ -107,6 +110,17 @@ public class RakNetServer extends Thread {
                         //TODO: IMPLEMENTS SESSION
 
                         sendBuffer(packetOpenConnectionReply2.getBuffer(), address, port);
+                    }
+                    default: {
+                        Session session = sessions.get(address.getHostAddress() + ":" + port);
+
+                        if(session == null) {
+                            session = new Session();
+
+                            sessions.put(address.getHostAddress() + ":" + port, session);
+                        }
+
+                        //TODO: HANDLE CLIENT PACKETS
                     }
                 }
             }
