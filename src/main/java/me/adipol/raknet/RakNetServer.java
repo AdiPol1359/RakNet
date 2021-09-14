@@ -116,11 +116,10 @@ public class RakNetServer extends Thread {
 
                         if(session == null) {
                             session = new Session();
-
                             sessions.put(address.getHostAddress() + ":" + port, session);
                         }
 
-                        //TODO: HANDLE CLIENT PACKETS
+                        session.handleDataPacket(datagramPacket.getData());
                     }
                 }
             }
